@@ -56,6 +56,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/product-alerts/product-alerts.component.html":
+  /*!****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/product-alerts/product-alerts.component.html ***!
+    \****************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppProductAlertsProductAlertsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p *ngIf=\"product.price > 700\">\n  <button (click)=\"notify.emit()\">Notify Me</button>\n</p>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/product-list/product-list.component.html":
   /*!************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/product-list/product-list.component.html ***!
@@ -71,7 +91,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2>Products</h2>\r\n\r\n\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
+    __webpack_exports__["default"] = "<h2>Products</h2>\r\n\r\n<div *ngFor=\"let product of products\">\r\n  <h3>\r\n    <a [title]=\"product.name + ' details'\">\r\n      {{ product.name }}\r\n    </a>\r\n  </h3>\r\n\r\n  <p *ngIf=\"product.description\">Description: {{ product.description }}</p>\r\n\r\n  <button (click)=\"share()\">Share</button>\r\n\r\n  <app-product-alerts [product]=\"product\" (notify)=\"onNotify()\">\r\n  </app-product-alerts>\r\n</div>\r\n\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->\r\n";
     /***/
   },
 
@@ -829,6 +849,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./product-list/product-list.component */
     "./src/app/product-list/product-list.component.ts");
+    /* harmony import */
+
+
+    var _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./product-alerts/product-alerts.component */
+    "./src/app/product-alerts/product-alerts.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -839,7 +865,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         path: '',
         component: _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__["ProductListComponent"]
       }])],
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_6__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__["ProductListComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_6__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_7__["ProductListComponent"], _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_8__["ProductAlertsComponent"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })], AppModule);
     /*
@@ -848,6 +874,97 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     can be found in the LICENSE file at http://angular.io/license
     */
 
+    /***/
+  },
+
+  /***/
+  "./src/app/product-alerts/product-alerts.component.css":
+  /*!*************************************************************!*\
+    !*** ./src/app/product-alerts/product-alerts.component.css ***!
+    \*************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppProductAlertsProductAlertsComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2R1Y3QtYWxlcnRzL3Byb2R1Y3QtYWxlcnRzLmNvbXBvbmVudC5jc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/product-alerts/product-alerts.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/product-alerts/product-alerts.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: ProductAlertsComponent */
+
+  /***/
+  function srcAppProductAlertsProductAlertsComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ProductAlertsComponent", function () {
+      return ProductAlertsComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! events */
+    "./node_modules/events/events.js");
+    /* harmony import */
+
+
+    var events__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_2__);
+
+    var ProductAlertsComponent = /*#__PURE__*/function () {
+      function ProductAlertsComponent() {
+        _classCallCheck(this, ProductAlertsComponent);
+
+        this.notify = new events__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+      }
+
+      _createClass(ProductAlertsComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return ProductAlertsComponent;
+    }();
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ProductAlertsComponent.prototype, "product", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], ProductAlertsComponent.prototype, "notify", void 0);
+    ProductAlertsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: "app-product-alerts",
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./product-alerts.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/product-alerts/product-alerts.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./product-alerts.component.css */
+      "./src/app/product-alerts/product-alerts.component.css"))["default"]]
+    })], ProductAlertsComponent);
     /***/
   },
 
@@ -917,9 +1034,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(ProductListComponent, [{
+        key: "onNotify",
+        value: function onNotify() {
+          window.alert("Notified. Monkey Fighter!");
+        }
+      }, {
         key: "share",
         value: function share() {
-          window.alert('The product has been shared!');
+          window.alert("The product has been shared!");
         }
       }]);
 
@@ -927,7 +1049,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     ProductListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-product-list',
+      selector: "app-product-list",
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! raw-loader!./product-list.component.html */
       "./node_modules/raw-loader/dist/cjs.js!./src/app/product-list/product-list.component.html"))["default"],
@@ -950,7 +1072,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/app/products.ts ***!
     \*****************************/
 
-  /*! exports provided: products */
+  /*! exports provided: products, Product */
 
   /***/
   function srcAppProductsTs(module, __webpack_exports__, __webpack_require__) {
@@ -963,6 +1085,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     __webpack_require__.d(__webpack_exports__, "products", function () {
       return products;
     });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Product", function () {
+      return Product;
+    });
     /* harmony import */
 
 
@@ -971,18 +1099,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/tslib/tslib.es6.js");
 
     var products = [{
-      name: 'Phone XL',
+      name: "Phone XL",
       price: 799,
-      description: 'A large phone with one of the best screens'
+      description: "A large phone with one of the best screens"
     }, {
-      name: 'Phone Mini',
+      name: "Phone Mini",
       price: 699,
-      description: 'A great phone with one of the best cameras'
+      description: "A great phone with one of the best cameras"
     }, {
-      name: 'Phone Standard',
+      name: "Phone Standard",
       price: 299,
-      description: ''
+      description: ""
     }];
+
+    var Product = function Product() {
+      _classCallCheck(this, Product);
+    };
     /*
     Copyright Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
@@ -990,6 +1122,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     */
 
     /***/
+
   },
 
   /***/

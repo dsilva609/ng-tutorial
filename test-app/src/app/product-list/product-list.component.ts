@@ -1,20 +1,23 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { products } from '../products';
+import { products, Product } from "../products";
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: "app-product-list",
+  templateUrl: "./product-list.component.html",
+  styleUrls: ["./product-list.component.css"],
 })
 export class ProductListComponent {
-  products = products;
+  products: Array<Product> = products;
 
-  share() {
-    window.alert('The product has been shared!');
+  onNotify(): void {
+    window.alert("Notified. Monkey Fighter!");
+  }
+
+  share(): void {
+    window.alert("The product has been shared!");
   }
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.
