@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
+import { MatBadgeModule } from "@angular/material/badge";
+import { MatIconModule } from "@angular/material/icon";
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 
@@ -15,11 +17,14 @@ import {
   ShippingComponent,
   ShippingPrice,
 } from "./shipping/shipping.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatBadgeModule,
+    MatIconModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: "", component: ProductListComponent },
@@ -27,6 +32,7 @@ import {
       { path: "cart", component: CartComponent },
       { path: "shipping", component: ShippingComponent },
     ]),
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,

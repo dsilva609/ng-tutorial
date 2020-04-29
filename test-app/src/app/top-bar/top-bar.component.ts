@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { CartService } from "./../cart.service";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-top-bar',
-  templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.css']
+  selector: "app-top-bar",
+  templateUrl: "./top-bar.component.html",
+  styleUrls: ["./top-bar.component.css"],
 })
 export class TopBarComponent implements OnInit {
+  badgeCount: number;
 
-  constructor() { }
+  constructor(private cartService: CartService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      this.badgeCount = this.cartService.getItemCount();
+    });
   }
-
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

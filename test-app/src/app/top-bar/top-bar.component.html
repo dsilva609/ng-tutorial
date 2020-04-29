@@ -3,7 +3,9 @@
 </a>
 
 <a routerLink="/cart" class="button fancy-button">
-  <i class="material-icons">shopping_cart</i>
+  <mat-icon matBadge="{{ badgeCount }}" matBadgePosition="above before">
+    shopping_cart
+  </mat-icon>
   Checkout
 </a>
 

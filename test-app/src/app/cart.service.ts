@@ -16,6 +16,10 @@ export class CartService {
     this.items.push(product);
   }
 
+  getItemCount(): number {
+    return this.items.length;
+  }
+
   getItems(): Array<Product> {
     return this.items;
   }
