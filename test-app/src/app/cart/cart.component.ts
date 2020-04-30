@@ -1,7 +1,9 @@
 import { Product } from "./../products";
-import { CartService } from "./../cart.service";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { CartService } from "./cart.service";
+import { of } from "rxjs";
+import { CartQuery } from "./cart.query";
 
 @Component({
   selector: "app-cart",
@@ -10,10 +12,11 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 })
 export class CartComponent implements OnInit {
   checkoutForm: FormGroup;
-  items: Array<Product>;
+  items = of<Array<Product>>();
 
   constructor(
     private cartService: CartService,
+    private cartQuery: CartQuery,
     private formBuilder: FormBuilder
   ) {
     this.checkoutForm = this.formBuilder.group({
@@ -23,11 +26,15 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.items = this.cartService.getItems();
+    this.items = this.cartQuery.selectAll();
+  }
+
+  removeItem(id: string): void {
+    this.cartService.removeItem(id);
   }
 
   onSubmit(customerData): void {
-    this.items = this.cartService.clearCart();
+    //this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
 
     console.warn("Your order has been submitted", customerData);

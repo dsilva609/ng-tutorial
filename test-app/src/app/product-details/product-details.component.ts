@@ -1,7 +1,9 @@
-import { CartService } from "./../cart.service";
+import { CartQuery } from "./../cart/cart.query";
 import { Product, products } from "./../products";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { CartService } from "../cart/cart.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-product-details",
@@ -13,7 +15,8 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private cartQuery: CartQuery
   ) {}
 
   ngOnInit(): void {

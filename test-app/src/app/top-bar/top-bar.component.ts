@@ -1,6 +1,7 @@
-import { CartService } from "./../cart.service";
+import { CartQuery } from "./../cart/cart.query";
+import { CartService } from "../cart/cart.service";
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { of } from "rxjs";
 
 @Component({
   selector: "app-top-bar",
@@ -8,14 +9,12 @@ import { Router } from "@angular/router";
   styleUrls: ["./top-bar.component.css"],
 })
 export class TopBarComponent implements OnInit {
-  badgeCount: number;
+  badgeCount = of<number>();
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(private cartService: CartService, private cartQuery: CartQuery) {}
 
   ngOnInit(): void {
-    this.router.events.subscribe((evt) => {
-      this.badgeCount = this.cartService.getItemCount();
-    });
+    this.badgeCount = this.cartQuery.selectCount();
   }
 }
 
