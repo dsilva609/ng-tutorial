@@ -24,6 +24,22 @@ export class Product {
   description: string;
   name: string;
   price: number;
+
+  public constructor(
+    id: string,
+    description: string,
+    name: string,
+    price: number
+  ) {
+    this.id = id;
+    this.description = description;
+    this.name = name;
+    this.price = price;
+  }
+
+  // public set setId(value: string) {
+  //   this.id = value;
+  // }
 }
 
 /*

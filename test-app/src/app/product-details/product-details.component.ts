@@ -26,8 +26,15 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    this.cartService.addToCart(product);
+    let id: string = (Math.floor(Math.random() * 10000000) + 1).toString();
+    let prod: Product = new Product(
+      id,
+      product.description,
+      product.name,
+      product.price
+    );
+    this.cartService.addToCart(prod);
 
-    window.alert("Your product has been added to the cart!");
+    //window.alert("Your product has been added to the cart!");
   }
 }

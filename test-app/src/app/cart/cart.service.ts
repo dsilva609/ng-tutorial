@@ -1,3 +1,4 @@
+import { products } from "./../products";
 import { CartStore } from "./cart.store";
 import { ShippingPrice } from "../shipping/shipping.component";
 import { Injectable } from "@angular/core";
