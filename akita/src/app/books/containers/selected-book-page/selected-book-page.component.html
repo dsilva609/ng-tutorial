@@ -1,0 +1,7 @@
+<bc-book-detail
+  [book]="book$ | async"
+  [inCollection]="isSelectedBookInCollection$ | async"
+  (add)="updateCollection($event)"
+  (remove)="updateCollection($event)"
+>
+</bc-book-detail>
