@@ -1,7 +1,6 @@
 import { catchError, map } from "rxjs/operators";
 import { Injectable } from "@angular/core";
-import { CanActivate } from "@angular/router/src/utils/preactivation";
-import { Router, ActivatedRouteSnapshot } from "@angular/router";
+import { CanActivate, Router, ActivatedRouteSnapshot } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { GoogleBooksService } from "../core/services/google-books-service";
 import { BooksQuery } from "./state/book.query";

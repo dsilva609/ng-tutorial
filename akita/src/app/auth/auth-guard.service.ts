@@ -1,7 +1,7 @@
 import { AuthQuery } from "./state/auth.query";
 import { Injectable } from "@angular/core";
-import { CanActivate } from "@angular/router/src/utils/preactivation";
-import { Router } from "@angular/router";
+
+import { Router, CanActivate } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { take, switchMap } from "rxjs/operators";
 
