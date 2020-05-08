@@ -1,5 +1,4 @@
 import { Observable } from "rxjs";
-import { Observable } from "rxjs";
 import { LayoutService } from "./core/state/layout.service";
 import { LayoutQuery } from "./core/state/layout.query";
 import { BooksService } from "./books/state/book.service";

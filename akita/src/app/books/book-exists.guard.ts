@@ -1,8 +1,11 @@
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map } from "rxjs/operators";
 import { Injectable } from "@angular/core";
 import { CanActivate } from "@angular/router/src/utils/preactivation";
 import { Router, ActivatedRouteSnapshot } from "@angular/router";
 import { Observable, of } from "rxjs";
+import { GoogleBooksService } from "../core/services/google-books-service";
+import { BooksQuery } from "./state/book.query";
+import { BooksService } from "./state/book.service";
 
 @Injectable()
 export class BookExistsGuard implements CanActivate {
@@ -19,18 +22,18 @@ export class BookExistsGuard implements CanActivate {
   path: ActivatedRouteSnapshot[];
   route: ActivatedRouteSnapshot;
 
-  hasBookInApi(id: string): Observable<boolean>{
-    return this.googleBooks.retrieveBook(id).pipe{
-      map(book => !!book),
+  hasBookInApi(id: string): Observable<boolean> {
+    return this.googleBooks.retrieveBook(id).pipe(
+      map((book) => !!book),
       catchError(() => {
         this.router.navigate(["/404"]);
         return of(false);
-      });
-    }
+      })
+    );
   }
 
   hasBook(id: string): Observable<boolean> {
-    if (this.bookQuery.hasEntry(id)) {
+    if (this.bookQuery.hasEntity(id)) {
       this.bookService.setActive(id);
 
       return of(true);
@@ -40,6 +43,6 @@ export class BookExistsGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
-    return this.hasBook(route.params['id']);
+    return this.hasBook(route.params["id"]);
   }
 }

@@ -1,24 +1,23 @@
-import { StoreConfig, Store } from "@datorama/akita"
+import { StoreConfig, Store } from "@datorama/akita";
 
 export type LayoutState = {
   sideNavOpen: boolean;
-}
+};
 
 const initialState = {
-  sideNavOpen: false;
-}
+  sideNavOpen: false,
+};
 
-@StoreConfig({name: 'layout'})
-export class LayoutStore extends Store<LayoutState>{
+@StoreConfig({ name: "layout" })
+export class LayoutStore extends Store<LayoutState> {
   /**
    *
    */
   constructor() {
     super(initialState);
-
   }
 
-  updateSideNavState(status:boolean) {
-    this.update({sideNavOpen: status});
+  updateSideNavState(status: boolean) {
+    this.update({ sideNavOpen: status });
   }
 }

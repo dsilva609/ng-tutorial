@@ -8,6 +8,7 @@ import { BookPreviewComponent } from "./book-preview/book-preview.component";
 import { BookPreviewListComponent } from "./book-preview-list/book-preview-list.component";
 import { BookSearchComponent } from "./book-search/book-search.component";
 import { MaterialModule } from "src/app/material/material.module";
+import { PipesModule } from "src/app/shared/pipes";
 
 export const COMPONENTS = [
   BookAuthorsComponent,

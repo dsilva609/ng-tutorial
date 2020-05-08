@@ -18,12 +18,17 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthModule } from "./auth/auth.module";
 import { CoreModule } from "./core/core.module";
+import { MaterialModule } from "@angular/material";
+import { MatInputModule } from "@angular/material/input";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   imports: [
     //AkitaNgDevtools.forRoot(),
     CommonModule,
     BrowserModule,
+    MatIconModule,
+    MatInputModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AuthModule.forRoot(),

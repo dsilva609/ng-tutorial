@@ -8,6 +8,7 @@ import { CommonModule } from "@angular/common";
 import { AuthStore } from "./state/auth.store";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from "../material/material.module";
+import { LoginPageComponent } from "./containers/login-page/login-page.component";
 
 export const COMPONENTS = [LoginPageComponent, LoginFormComponent];
 

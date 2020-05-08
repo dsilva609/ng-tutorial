@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 import { transaction, ID } from "@datorama/akita";
 import { Book } from "./book.model";
 import { forkJoin } from "rxjs";
+import { GoogleBooksService } from "src/app/core/services/google-books-service";
 
 @Injectable()
 export class BooksService {

@@ -2,6 +2,7 @@ import { map } from "rxjs/operators";
 import { Injectable } from "@angular/core";
 import { QueryEntity } from "@datorama/akita";
 import { Book } from "./book.model";
+import { BooksStore, BookState } from "./books.store";
 
 @Injectable()
 export class BooksQuery extends QueryEntity<BookState, Book> {
@@ -21,11 +22,11 @@ export class BooksQuery extends QueryEntity<BookState, Book> {
   );
 
   get getSearchTerm() {
-    return this.getsSnapshot().searchTerm;
+    return this.getValue().searchTerm;
   }
 
   get collection() {
-    return this.getSnapshot().collection;
+    return this.getValue().collection;
   }
 
   get nonCollectionBooks(): string[] {

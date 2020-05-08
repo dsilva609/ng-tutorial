@@ -7,6 +7,7 @@ import { FindBookPageComponent } from "./containers/find-book-page/find-book-pag
 import { ViewBookPageComponent } from "./containers/view-book-page/view-book-page.component";
 import { SelectedBookPageComponent } from "./containers/selected-book-page/selected-book-page.component";
 import { CollectionPageComponent } from "./containers/collection-page/collection-page.component";
+import { ComponentsModule } from "./components";
 
 @NgModule({
   imports: [CommonModule, MaterialModule, ComponentsModule, BooksRoutingModule],

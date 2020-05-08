@@ -1,25 +1,23 @@
 import { BooksService } from "./../../state/book.service";
 import { ID } from "@datorama/akita";
-import { Component, OnInit, Input, Output } from "@angular/core";
-import { EventEmitter } from "protractor";
-import { Book } from "../../state/book.model";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Location } from "@angular/common";
+import { Book } from "../../state/book.model";
 
 @Component({
   selector: "bc-book-detail",
   templateUrl: "./book-detail.component.html",
   styleUrls: ["./book-detail.component.scss"],
 })
-export class BookDetailComponent implements OnInit {
+export class BookDetailComponent {
   @Input() book: Book;
   @Input() inCollection: boolean;
   @Output() add = new EventEmitter<Book>();
   @Output() remove = new EventEmitter<Book>();
-
   constructor(private location: Location) {}
 
   get id() {
-    return this.book.ID;
+    return this.book.id;
   }
 
   get title() {
@@ -45,6 +43,4 @@ export class BookDetailComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
-  ngOnInit() {}
 }

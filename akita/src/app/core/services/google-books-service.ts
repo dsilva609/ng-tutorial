@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Book } from "src/app/books/state/book.model";
 import { ID } from "@datorama/akita";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class GoogleBooksService {
@@ -19,7 +20,7 @@ export class GoogleBooksService {
       .pipe(map((books) => books.items || []));
   }
 
-  retrieveBooks(volumeId: ID): Observable<Book> {
+  retrieveBook(volumeId: ID): Observable<Book> {
     return this.http.get<Book>(`${this.API_PATH}/${volumeId}`);
   }
 }
