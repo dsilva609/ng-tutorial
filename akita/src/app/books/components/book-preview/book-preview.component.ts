@@ -28,7 +28,7 @@ export class BookPreviewComponent implements OnInit {
 
   get thumbnail(): string | boolean {
     if (this.book.volumeInfo.imageLinks) {
-      return this.book.volumeInfo.imageLinks.smallthumbnail.replace(
+      return this.book.volumeInfo.imageLinks.smallThumbnail.replace(
         "http:",
         ""
       );

@@ -11,7 +11,7 @@ export type Book = {
     ratingsCount: number;
     imageLinks: {
       thumbnail: string;
-      smallthumbnail: string;
+      smallThumbnail: string;
     };
   };
 };
