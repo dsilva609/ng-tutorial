@@ -29,6 +29,7 @@ export class AuthStore extends Store<AuthState> {
 
   logout() {
     localStorage.removeItem("user");
+    localStorage.removeItem("collection");
     this.update(initialState);
   }
 }

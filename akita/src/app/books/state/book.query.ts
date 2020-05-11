@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { QueryEntity } from "@datorama/akita";
 import { Book } from "./book.model";
 import { BooksStore, BookState } from "./books.store";
+import { identifierModuleUrl } from "@angular/compiler";
 
 @Injectable()
 export class BooksQuery extends QueryEntity<BookState, Book> {
@@ -18,20 +19,29 @@ export class BooksQuery extends QueryEntity<BookState, Book> {
   selectCollection$ = this.select((state) => state.collection);
 
   isInCollection$ = this.selectCollection$.pipe(
-    map((ids) => ids.includes(this.getActiveId()) === true)
+    map(
+      (ids) =>
+        ids !== undefined &&
+        ids?.length > 0 &&
+        ids.includes(this.getActiveId()) === true
+    )
   );
 
   get getSearchTerm() {
     return this.getValue().searchTerm;
   }
 
-  get collection() {
+  get getCollection() {
     return this.getValue().collection;
   }
 
   get nonCollectionBooks(): string[] {
+    // if (this.getCollection === undefined || this.getCollection == null) {
+    //   return [];
+    // }
+
     return this.getAll({
-      filterBy: ({ id }) => this.collection.includes(id) === false,
+      filterBy: ({ id }) => this.getCollection.includes(id) === false,
     }).map(({ id }) => id);
   }
 }

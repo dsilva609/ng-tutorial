@@ -3,6 +3,7 @@ import { BooksQuery } from "./../../state/book.query";
 import { Observable } from "rxjs";
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { Book } from "../../state/book.model";
+import { JsonPipe } from "@angular/common";
 
 @Component({
   selector: "bc-selected-book-page",
@@ -18,7 +19,7 @@ export class SelectedBookPageComponent implements OnInit {
     private booksQuery: BooksQuery,
     private booksService: BooksService
   ) {
-    this.book$ = this.booksQuery.selectActive() as Observable<Book>;
+    this.book$ = this.booksQuery.selectActive();
     this.isSelectedBookInCollection$ = this.booksQuery.isInCollection$;
   }
 

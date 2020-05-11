@@ -4,11 +4,12 @@ import {
   StoreConfig,
   EntityStore,
   IDS,
+  ActiveState,
 } from "@datorama/akita";
 import { Book } from "./book.model";
 import { Injectable } from "@angular/core";
 
-export interface BookState extends EntityState<Book> {
+export interface BookState extends EntityState<Book>, ActiveState {
   searchTerm: string;
   resultIds: ID[];
   collection: ID[];
@@ -19,6 +20,10 @@ const initialState = {
   resultIds: [],
   loading: false,
   collection: JSON.parse(localStorage.getItem("collection") as string) || [],
+  // localStorage.getItem("collection") !== undefined &&
+  // localStorage.getItem("collection") != null
+  //   ? JSON.parse(localStorage.getItem("collection") as string)
+  //   : [],
 };
 
 @Injectable()
@@ -32,16 +37,19 @@ export class BooksStore extends EntityStore<BookState, Book> {
   }
 
   updateSearchTerm(searchTerm: string) {
-    this.update({ searchTerm });
+    this.update({ searchTerm: searchTerm });
   }
 
   updateResultIds(resultIds: ID[]) {
-    this.update({ resultIds });
+    this.update({ resultIds: resultIds });
   }
 
   updateCollection(id: ID) {
+    console.log("updating collection");
+
+    this.toggleActive(id);
     this.update((state) => ({
-      collection: this.toggleActive(id),
+      collection: state, // this.toggleActive(id),
     }));
   }
 }

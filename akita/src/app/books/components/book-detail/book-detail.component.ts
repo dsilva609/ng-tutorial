@@ -1,6 +1,4 @@
-import { BooksService } from "./../../state/book.service";
-import { ID } from "@datorama/akita";
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Location } from "@angular/common";
 import { Book } from "../../state/book.model";
 

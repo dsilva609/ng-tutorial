@@ -1,4 +1,4 @@
-<mat-card *ngIf="book">
+<mat-card>
   <mat-card-title-group>
     <mat-card-title>{{ title }}</mat-card-title>
     <mat-card-subtitle *ngIf="subtitle">{{ subtitle }}</mat-card-subtitle>
@@ -14,21 +14,11 @@
     </button>
   </mat-card-footer>
   <mat-card-actions align="start">
-    <button
-      mat-raised-button
-      color="warn"
-      *ngIf="inCollection"
-      (click)="remove.emit(book)"
-    >
+    <button mat-raised-button color="warn" *ngIf="inCollection" (click)="remove.emit(book)">
       Remove Book from Collection
     </button>
 
-    <button
-      mat-raised-button
-      color="primary"
-      *ngIf="!inCollection"
-      (click)="add.emit(book)"
-    >
+    <button mat-raised-button color="primary" *ngIf="!inCollection" (click)="add.emit(book)">
       Add Book to Collection
     </button>
   </mat-card-actions>

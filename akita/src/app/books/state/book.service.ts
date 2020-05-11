@@ -27,8 +27,8 @@ export class BooksService {
 
   @transaction()
   private updateBooks(books) {
-    const nonCollection = this.bookQuery.nonCollectionBooks;
-    this.bookStore.remove([...nonCollection]);
+    //const nonCollection = this.bookQuery.nonCollectionBooks;
+    //this.bookStore.remove([...nonCollection]);
     this.add(books);
     this.bookStore.updateResultIds(books.map(({ id }) => id));
     this.bookStore.setLoading(false);
@@ -47,19 +47,31 @@ export class BooksService {
   }
 
   loadBooksToStore() {
-    const books$ = this.bookQuery.collection.map((id) =>
-      this.googleService.retrieveBook(id)
-    );
+    const collection = this.bookQuery.getCollection;
+
+    // if (
+    //   collection === undefined ||
+    //   collection == null ||
+    //   collection.length === 0
+    // ) {
+    //   console.log("unable to load books");
+
+    //   return;
+    // }
+
+    const books$ = collection.map((id) => this.googleService.retrieveBook(id));
 
     forkJoin(books$).subscribe((books) => this.add(books as Book[]));
   }
 
   updateCollection(bookId: ID) {
-    this.bookStore.updateCollection(bookId);
+    console.log("updating id " + bookId);
 
-    localStorage.setItem(
-      "collection",
-      JSON.stringify(this.bookQuery.collection)
-    );
+    this.bookStore.updateCollection(bookId);
+    //this.bookStore.setActive(bookId);
+    const json = JSON.stringify(this.bookQuery.getCollection);
+    // console.log("saving ids " + json);
+
+    localStorage.setItem("collection", json);
   }
 }

@@ -10,5 +10,9 @@ export class BookPreviewListComponent implements OnInit {
   @Input() books: Book[];
   constructor() {}
 
+  get current() {
+    return localStorage.getItem("collection");
+  }
+
   ngOnInit() {}
 }
