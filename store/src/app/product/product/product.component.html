@@ -1,0 +1,11 @@
+<div>
+  <img [src]="product.image">
+
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+  </div>
+
+  <div class="card-body">
+    <a [routerLink]="['product', product.id]">Details</a>
+  </div>
+</div>

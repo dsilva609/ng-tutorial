@@ -1,0 +1,17 @@
+<section>
+  <app-filters></app-filters>
+
+  <ng-template #productsList>
+    <section>
+      <app-search></app-search>
+
+      <div class="products">
+        <app-base-product [product]="product" *ngFor="let product of products$ | async"></app-base-product>
+      </div>
+    </section>
+  </ng-template>
+
+  <div *ngIf="isLoading$ | async; else productsList">
+    // spinner
+  </div>
+</section>

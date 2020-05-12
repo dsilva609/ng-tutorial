@@ -1,0 +1,20 @@
+<section *ngIf="products$ | async as product;">
+  <h1>{{product.title}}</h1>
+  <p class="lead">{{product.additionalData.description}}</p>
+  <ul>
+    <li>Department: {{product.additionalData.department}}</li>
+    <li>Material: {{product.additionalData.productMaterial}}</li>
+  </ul>
+
+  <select [formControl]="quantity">
+    <option [ngValue]="1">1</option>
+    <option [ngValue]="2">2</option>
+    <option [ngValue]="3">3</option>
+  </select>
+
+  <footer>
+    <button (click)="addToCart(product)">
+      Add to cart
+    </button>
+  </footer>
+</section>

@@ -1,0 +1,25 @@
+<section *ngIf="count$ | async; else 0">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+
+    <tr *ngFor="let item of items$ | async ">
+      <td>{{item.title}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.total}}}</td>
+      <td>
+        <button (click)="remove(item.productId)">Remove</button>
+      </td>
+    </tr>
+  </table>
+
+  Total: {{total$ | async}}$
+
+  <button (click)="checkout()">Checkout</button>
+</section>
+
+<ng-template #empty>It's lonely in here.</ng-template>
