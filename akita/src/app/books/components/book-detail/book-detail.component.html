@@ -12,6 +12,9 @@
     <button mat-raised-button color="primary" (click)="goBack()">
       Back
     </button>
+    <button mat-raised-button color="default" (click)="viewCollection()">
+      View Collection
+    </button>
   </mat-card-footer>
   <mat-card-actions align="start">
     <button mat-raised-button color="warn" *ngIf="inCollection" (click)="remove.emit(book)">

@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Location } from "@angular/common";
 import { Book } from "../../state/book.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "bc-book-detail",
@@ -13,7 +14,7 @@ export class BookDetailComponent {
   @Output() add = new EventEmitter<Book>();
   @Output() remove = new EventEmitter<Book>();
 
-  constructor(private location: Location) {}
+  constructor(private location: Location, private router: Router) {}
 
   get id() {
     return this.book.id;
@@ -41,5 +42,9 @@ export class BookDetailComponent {
 
   goBack() {
     this.location.back();
+  }
+
+  viewCollection() {
+    this.router.navigate(["/books"]);
   }
 }
