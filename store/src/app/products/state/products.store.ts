@@ -20,6 +20,17 @@ export interface ProductsState extends EntityState<Product> {
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'products' })
 export class ProductsStore extends EntityStore<ProductsState, Product> {
+  constructor() {
+    super({
+      searchTerm: '',
+      filters: {
+        condition: null,
+        location: null,
+        deliveryOption: false,
+      },
+    });
+  }
+
   updateCachedIds(id: ID) {
     this.update((state) => ({
       cachedIds: { ...state.cachedIds, [id]: true },

@@ -12,7 +12,7 @@ export class ProductsService {
   getAll(term: string, filters) {
     return this.http
       .get<BaseProduct[]>(`${API}/products`, { term, ...filters })
-      .pipe(tap((products) => this.productsStore.set(products)));
+      .pipe(tap((products) => this.productsStore.setActive(products)));
   }
 
   getProduct(id: ID) {
