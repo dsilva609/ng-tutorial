@@ -12,6 +12,7 @@ export class BookDetailComponent {
   @Input() inCollection: boolean;
   @Output() add = new EventEmitter<Book>();
   @Output() remove = new EventEmitter<Book>();
+
   constructor(private location: Location) {}
 
   get id() {

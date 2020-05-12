@@ -8,6 +8,7 @@ import {
 } from "@datorama/akita";
 import { Book } from "./book.model";
 import { Injectable } from "@angular/core";
+import { throwMatDuplicatedDrawerError } from "@angular/material/sidenav";
 
 export interface BookState extends EntityState<Book>, ActiveState {
   searchTerm: string;
@@ -48,8 +49,9 @@ export class BooksStore extends EntityStore<BookState, Book> {
     console.log("updating collection");
 
     this.toggleActive(id);
+    const col = this.getValue().collection;
     this.update((state) => ({
-      collection: state, // this.toggleActive(id),
+      collection: [...col, id],
     }));
   }
 }
