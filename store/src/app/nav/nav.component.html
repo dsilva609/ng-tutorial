@@ -1,17 +1,20 @@
 <nav>
   <ul>
+    <li>
+      test item
+    </li>
     <li *showIfLoggedIn routerLinkActive="active">
       <a class="nav-link" routerLink="login">Login</a>
     </li>
 
     <li>
       <a routerLink="cart" routerLinkActive="item">
-        Cart <span>{{cartCount$ | async}}</span>
+        Cart <span>{{ cartCount$ | async }}</span>
       </a>
     </li>
 
-    <li *showIfLoggedIn="true">
-      <button (click)="logout()"> Logout</button>
+    <li *showIfLoggedIn>
+      <button (click)="logout()">Logout</button>
     </li>
   </ul>
 </nav>

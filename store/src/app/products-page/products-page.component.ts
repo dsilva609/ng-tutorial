@@ -19,7 +19,7 @@ export class ProductsPageComponent implements OnInit {
     private productsQuery: ProductsQuery
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.isLoading$ = this.productsQuery.selectLoading();
     this.products$ = this.productsQuery.selectAll();
 

@@ -26,6 +26,10 @@ export class ProductPageComponent implements OnInit {
     this.quantity = new FormControl(1);
   }
 
+  get productId() {
+    return this.activatedRoute.snapshot.params.id;
+  }
+
   ngOnInit(): void {
     if (this.productsQuery.hasProduct(this.productId) === false) {
       this.productsService.getProduct(this.productId).subscribe({

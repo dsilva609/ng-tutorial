@@ -1,10 +1,10 @@
-<form [form-group]="loginForm" (ngSubmit)="submit()">
-  <input type="email" formControlName="email">
-  <input type="password" formControlName="password">
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+  <input type="email" formControlName="email" />
+  <input type="password" formControlName="password" />
 
   <button type="submit" class="btn btn-primary">Submit</button>
 
-  <div class="alert-danger" **ngIf="error">
-    {{error}}
+  <div class="alert-danger" *ngIf="error">
+    {{ error }}
   </div>
-</form>>
+</form>
