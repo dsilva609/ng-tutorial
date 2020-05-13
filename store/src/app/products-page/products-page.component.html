@@ -13,5 +13,6 @@
 
   <div *ngIf="isLoading$ | async; else productsList">
     // spinner
+    <span>Loading: {{isLoading$ | async}}</span>
   </div>
 </section>

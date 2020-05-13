@@ -1,20 +1,32 @@
-<nav>
-  <ul>
-    <li>
-      test item
-    </li>
-    <li *showIfLoggedIn routerLinkActive="active">
-      <a class="nav-link" routerLink="login">Login</a>
-    </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <li>
-      <a routerLink="cart" routerLinkActive="item">
-        Cart <span>{{ cartCount$ | async }}</span>
-      </a>
-    </li>
 
-    <li *showIfLoggedIn>
-      <button (click)="logout()">Logout</button>
-    </li>
-  </ul>
+  <div class="navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Test</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="cart" routerLinkActive="item">
+          Cart <span>{{ cartCount$ | async }}</span>
+        </a>
+      </li>
+
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="login">Login</a>
+      </li>
+
+      <li *showIfLoggedIn class=" nav-item">
+        <button class="btn btn-default" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
 </nav>

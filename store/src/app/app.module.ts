@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -17,16 +18,32 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { CartComponent } from './cart/cart.component';
 import { NavComponent } from './nav/nav.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, FiltersComponent, SearchComponent, ProductComponent, ProductsPageComponent, ProductPageComponent, CartComponent, NavComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    FiltersComponent,
+    SearchComponent,
+    ProductComponent,
+    ProductsPageComponent,
+    ProductPageComponent,
+    CartComponent,
+    NavComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     environment.production ? [] : AkitaNgDevtools,
     AkitaNgRouterStoreModule,
     ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: 'login', component: LoginComponent },
+      { path: '', component: ProductsPageComponent },
+    ]),
     ToastrModule.forRoot(),
+    NgbModule,
   ],
   providers: [
     {
